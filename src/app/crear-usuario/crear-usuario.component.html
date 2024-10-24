@@ -1,0 +1,68 @@
+<div class="form">
+    <div class="form-header">
+        <h3>{{ title }}</h3>
+    </div>
+    <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()" class="horizontal-form">
+        <div class="input-group">
+            <label class="input-label">Nombres</label>
+            <input type="text" formControlName="nombres" class="input-control" placeholder="Ingrese sus nombres">
+            <div *ngIf="usuarioForm.get('nombres')?.invalid && usuarioForm.get('nombres')?.touched">
+                <small class="error-text">Este campo es obligatorio.</small>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label class="input-label">Apellidos</label>
+            <input type="text" formControlName="apellidos" class="input-control" placeholder="Ingrese sus apellidos">
+            <div *ngIf="usuarioForm.get('apellidos')?.invalid && usuarioForm.get('apellidos')?.touched">
+                <small class="error-text">Este campo es obligatorio.</small>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label class="input-label">Identificación</label>
+            <input type="text" formControlName="identificacion" class="input-control" placeholder="Ingrese su identificación">
+            <div *ngIf="usuarioForm.get('identificacion')?.invalid && usuarioForm.get('identificacion')?.touched">
+                <small class="error-text">La identificación debe tener solo números y hasta 10 caracteres.</small>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label class="input-label">Fecha de nacimiento</label>
+            <input type="date" formControlName="fechaNacimiento" class="input-control">
+            <div *ngIf="usuarioForm.get('fechaNacimiento')?.invalid && usuarioForm.get('fechaNacimiento')?.touched">
+                <small class="error-text">Este campo es obligatorio.</small>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label class="input-label">Género</label>
+            <select formControlName="genero" class="input-select">
+                <option value="" disabled>Seleccione una opción</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="otro">Otro</option>
+            </select>
+            <div *ngIf="usuarioForm.get('genero')?.invalid && usuarioForm.get('genero')?.touched">
+                <small class="error-text">Este campo es obligatorio.</small>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label class="input-label">País</label>
+            <select formControlName="pais" class="input-select">
+                <option value="" disabled>Seleccione una opción</option>
+                <option value="colombia">Colombia</option>
+                <option value="mexico">México</option>
+                <option value="argentina">Argentina</option>
+            </select>
+            <div *ngIf="usuarioForm.get('pais')?.invalid && usuarioForm.get('pais')?.touched">
+                <small class="error-text">Este campo es obligatorio.</small>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn-submit">Enviar</button>
+        </div>
+    </form>
+</div>
